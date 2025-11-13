@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif; /* ✅ Added DM Sans font */
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+nav {
+    padding: 1.5rem 2rem;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #666;
+}
+
+.contact-btn {
+    background: #383bf3;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-btn:hover {
+    background: #5558e3;
+}
+
+/* Hero Section */
+.hero {
+    padding: 6rem 5rem; /* slightly more space for balance */
+}
+
+.hero-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+.left-column {
+    flex: 0 0 60%; /* Fix width to 60% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-right {
+    flex: 0 0 40%; /* Fix width to 40% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 4rem; /* ✅ reduced top padding for alignment */
+    padding-left: 6rem;
+}
+
+h1 {
+    font-size: 4.8rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-grid {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        text-align: center;
+    }
+
+    .left-column, .hero-right {
+        flex: 1 1 100%;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a9f 35%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* Blinking cursor effect */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: #a855f7;
+    animation: blink 0.7s infinite;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #1a1a1a;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #1a1a1a;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-right {
+    /* repeated but matches your original */
+    padding-top: 5rem;
+    padding-left: 6rem;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.social-proof {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.founders-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar-group {
+    display: flex;
+    margin-left: -8px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e5e5e5;
+    border: 2px solid white;
+    margin-left: -8px;
+}
+
+.reviews-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.5rem;
+}
+
+.review-logo {
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+.star {
+    color: #ef4444;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-right {
+        padding-top: 0;
+        padding-left: 0;
+    }
+}
