@@ -12,10 +12,10 @@
     <div class="container nav-content">
       <div class="logo">Portfolio</div>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#case-studies">Case studies</a></li>
-        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#about">About us</a></li>
+        <li><a href="#work">Services</a></li>
+        <!-- <li><a href="#case-studies">Case studies</a></li> -->
+        <li><a href="#pricing">Book Now</a></li>
         <li><a href="#blog">Blog</a></li>
       </ul>
       <a href="#contact" class="contact-btn">Contact Us</a>
@@ -37,8 +37,8 @@
           <div class="hero-buttons">
             <a href="#book" class="btn-primary">Book a call</a>
             <a href="#work" class="btn-ghost">
-              View work
-            </a>
+                View work
+              </a>
           </div>
         </div>
 
@@ -156,7 +156,63 @@
     </div>
   </div>
 </section>
+  
+  <!-- Work / Projects (single-page) -->
+  <section class="projects" id="work">
+    <div class="container">
+      <div class="projects-grid">
+        <article class="project-card" data-project="project1">
+          <div class="project-thumb"><img src="./logos/icons8-web-development-50.png" alt="Responsive E-commerce"></div>
+          <h3><a href="projects/project1.html">Responsive E‑commerce</a></h3>
+          <p>Design and build of a fast, accessible store for a DTC brand.</p>
+        </article>
 
+        <article class="project-card" data-project="project2">
+          <div class="project-thumb"><img src="./logos/icons8-internet-50.png" alt="Startup Landing"></div>
+          <h3><a href="projects/project2.html">Startup Landing</a></h3>
+          <p>Landing page with a lightweight CMS and analytics tracking.</p>
+        </article>
+
+        <article class="project-card" data-project="project3">
+          <div class="project-thumb"><img src="./logos/icons8-web-analytics-50.png" alt="Dashboard UI"></div>
+          <h3><a href="projects/project3.html">Dashboard UI</a></h3>
+          <p>Admin dashboard with charts and responsive controls.</p>
+        </article>
+
+        <article class="project-card" data-project="project4">
+          <div class="project-thumb"><img src="./logos/icons8-backend-development-50.png" alt="Brand Website"></div>
+          <h3><a href="projects/project4.html">Brand Website</a></h3>
+          <p>Full brand site with animations and SEO optimizations.</p>
+        </article>
+
+        <article class="project-card" data-project="project5">
+          <div class="project-thumb"><img src="./logos/icons8-source-code-50.png" alt="Portfolio Microsite"></div>
+          <h3><a href="projects/project5.html">Portfolio Microsite</a></h3>
+          <p>Micro-interactions and rapid prototyping for campaigns.</p>
+        </article>
+
+        <article class="project-card" data-project="project6">
+          <div class="project-thumb"><img src="./logos/icons8-javascript-50.png" alt="Landing A/B"></div>
+          <h3><a href="projects/project6.html">Landing A/B</a></h3>
+          <p>A/B-tested landing pages to improve conversion flows.</p>
+        </article>
+      </div>
+
+      <!-- Modal for project preview -->
+      <div id="project-modal" class="modal" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+          <button class="modal-close" aria-label="Close">×</button>
+          <div class="modal-body">
+            <img class="modal-image" src="" alt="">
+            <h3 class="modal-title"></h3>
+            <p class="modal-desc"></p>
+            <a class="modal-link btn-primary" href="#" target="_blank">View project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>

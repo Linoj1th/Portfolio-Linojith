@@ -97,4 +97,113 @@ document.addEventListener('DOMContentLoaded', () => {
   // attach about section observer
   const aboutSection = document.querySelector('.about');
   if (aboutSection) aboutObserver.observe(aboutSection);
+  
+  // Project modal preview logic for work.html
+  const projectData = {
+    project1: {
+      title: 'Responsive E‑commerce',
+      img: './logos/icons8-web-development-50.png',
+      desc: 'Design and build of a fast, accessible store focusing on performance and accessibility.',
+      link: './projects/project1.html'
+    },
+    project2: {
+      title: 'Startup Landing',
+      img: './logos/icons8-internet-50.png',
+      desc: 'Landing page with clear messaging, lead-capture and lightweight analytics.',
+      link: './projects/project2.html'
+    },
+    project3: {
+      title: 'Dashboard UI',
+      img: './logos/icons8-web-analytics-50.png',
+      desc: 'Admin dashboard with charts, filters, and responsive controls.',
+      link: './projects/project3.html'
+    },
+    project4: {
+      title: 'Brand Website',
+      img: './logos/icons8-backend-development-50.png',
+      desc: 'Full brand site with animations and SEO optimizations.',
+      link: './projects/project4.html'
+    },
+    project5: {
+      title: 'Portfolio Microsite',
+      img: './logos/icons8-source-code-50.png',
+      desc: 'Micro-interactions and rapid prototyping for campaigns.',
+      link: './projects/project5.html'
+    },
+    project6: {
+      title: 'Landing A/B',
+      img: './logos/icons8-javascript-50.png',
+      desc: 'A/B-tested landing pages to improve conversion flows.',
+      link: './projects/project6.html'
+    }
+  };
+
+  const modal = document.getElementById('project-modal');
+  if (modal) {
+    const modalImage = modal.querySelector('.modal-image');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalDesc = modal.querySelector('.modal-desc');
+    const modalLink = modal.querySelector('.modal-link');
+    const closeBtn = modal.querySelector('.modal-close');
+
+    function openModal(data) {
+      modalImage.src = data.img;
+      modalTitle.textContent = data.title;
+      modalDesc.textContent = data.desc;
+      modalLink.href = data.link;
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // if clicking the inner link, let it navigate to detail page
+        const anchor = e.target.closest('a');
+        if (anchor) return;
+        const id = card.dataset.project;
+        if (id && projectData[id]) openModal(projectData[id]);
+      });
+    });
+  }
+
+  // Smooth scroll with offset to account for nav height
+  const navEl = document.querySelector('nav');
+  function getNavHeight() {
+    return navEl ? navEl.offsetHeight : 0;
+  }
+
+  function scrollToHash(hash) {
+    if (!hash) return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const navH = getNavHeight();
+    const y = window.pageYOffset + target.getBoundingClientRect().top - navH - 12;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  // Intercept same-page anchor clicks to apply offset
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (ev) => {
+      const href = a.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        ev.preventDefault();
+        history.pushState(null, '', href);
+        scrollToHash(href);
+      }
+    });
+  });
+
+  // If page loads with a hash, scroll to it with offset
+  if (location.hash) {
+    setTimeout(() => scrollToHash(location.hash), 60);
+  }
+
+  // Also handle back/forward hash changes
+  window.addEventListener('hashchange', () => scrollToHash(location.hash));
 });
